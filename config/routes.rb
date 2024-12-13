@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -8,4 +9,19 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # READ ALL
+  get "recipes", to: "recipes#index"
+  # NEW
+  get "recipes/new", to: "recipes#new"
+  # READ ONE
+  get "recipes/:id", to: "recipes#show", as: :recipe
+  # CREATE
+  post "recipes", to: "recipes#create"
+  # EDIT
+  get "recipes/:id/edit", to: "recipes#edit"
+  # UPDATE
+  patch "recipes/:id", to: "recipes#update"
+  # DELETE
+  delete "recipes/:id", to: "recipes#destroy"
 end
