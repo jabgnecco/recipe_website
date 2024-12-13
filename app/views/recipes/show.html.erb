@@ -1,0 +1,23 @@
+<h1><%= @recipe.title %></h1>
+<p><%= @recipe.description %></p>
+
+<h3>Instructions:</h3>
+<ul>
+<% @recipe.instructions.split("\n").each do |instruction| %>
+<li><%= instruction %></li>
+<% end %>
+</ul>
+
+<h3>Ingredients:</h3>
+<ul>
+  <% @recipe.ingredients.split("\n").each do |ingredient| %>
+  <li><%= ingredient %></li>
+  <% end %>
+</ul>
+
+<h3>Category:</h3>
+<p><%= @recipe.category %></p>
+<h3>Difficulty:</h3>
+<p><%= @recipe.difficulty %></p>
+
+<%= link_to  "Delete", recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
