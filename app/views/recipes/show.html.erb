@@ -20,4 +20,5 @@
 <h3>Difficulty:</h3>
 <p><%= @recipe.difficulty %></p>
 
+<%= link_to "Back to Recipes", recipes_path %> |
 <%= link_to  "Delete", recipe_path(@recipe), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
